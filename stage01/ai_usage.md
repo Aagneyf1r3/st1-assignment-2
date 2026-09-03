@@ -87,7 +87,7 @@ zero validation on any field — it will silently accept blank names, None
 values, and duplicate bookings without any warning. Neither approach is
 actually correct; a good solution would validate input AND fail gracefully
 (e.g. print an error message and skip the booking, rather than crashing or
-silently
+silently accepting bad data).
 
 ## Other Resources Used
 
