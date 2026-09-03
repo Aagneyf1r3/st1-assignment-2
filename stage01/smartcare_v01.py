@@ -108,4 +108,3 @@ display_appointments()
 # applied uniformly across all three required fields. (The actual code change
 # is in the book_appointment function defined above, which now checks all
 # three fields instead of just patient_name.)
-book_appointment('Red John', '', '2026-09-11 10:00 AM')   # blank practitioner — should now raise ValueError
