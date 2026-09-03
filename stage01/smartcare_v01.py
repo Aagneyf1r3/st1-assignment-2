@@ -25,6 +25,7 @@
 # - whether appointments can be edited or cancelled
 # - whether practitioner availability should be checked
 # - whether the system should validate input or just store whatever is given
+
 print("Welcome to SmartCare: Community Clinic Appointment Booking System!")
 
 # First Appointment
@@ -38,17 +39,23 @@ patient2_name = 'Thea Merlyn'
 practitioner2_name = 'Dr. Moira Queen'
 appointment2_time = '2026-09-11 11:30 AM'
 print(f"Patient: {patient2_name} | Practitioner: {practitioner2_name} | Time: {appointment2_time}")
+
 appointments = []
 
 def book_appointment(patient_name, practitioner_name, appointment_time):
     if not patient_name:
         raise ValueError("Patient name cannot be empty")
+    if not practitioner_name:
+        raise ValueError("Practitioner name cannot be empty")
+    if not appointment_time:
+        raise ValueError("Appointment time cannot be empty")
     appointment = {
         "patient": patient_name,
         "practitioner": practitioner_name,
         "time": appointment_time
     }
     appointments.append(appointment)
+
 def display_appointments():
     if not appointments:
         print("No appointments recorded.")
@@ -67,6 +74,7 @@ display_appointments()
 # book_appointment('Red John', 'Dr. Patrick Jane', '2026-09-11 10:00 AM')  # exact duplicate test
 # book_appointment(None, None, None)                              # None values
 # display_appointments()
+
 # ---- Part B: Testing & Limitations Found (evidence-based) ----
 
 # Test 1: book_appointment('', 'Dr. Nobody', '2026-09-11 09:00 AM')
@@ -89,3 +97,15 @@ display_appointments()
 # - No time format validation (any string is accepted as a "time")
 # - No function to cancel or edit an existing appointment
 # - Appointments only exist in memory -- they disappear when the program closes
+
+# ---- Part G: Improvement (AI OFF) ----
+# Based on the limitations found in Part B, chose ONE controlled improvement:
+# consistent required-field validation. The handout's example only validates
+# patient_name, but validating just one of three required fields while leaving
+# practitioner_name and appointment_time unchecked would be inconsistent --
+# a system meant to prevent bad bookings shouldn't only protect one field.
+# Treating this as ONE improvement: "consistent required-field validation"
+# applied uniformly across all three required fields. (The actual code change
+# is in the book_appointment function defined above, which now checks all
+# three fields instead of just patient_name.)
+book_appointment('Red John', '', '2026-09-11 10:00 AM')   # blank practitioner — should now raise ValueError
