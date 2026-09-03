@@ -99,6 +99,6 @@ silently accepting bad data).
 I used Copilot to help me organise and format this documentation
 (ai_usage.md, comparison.md, and reflection.md) into clear Markdown, since
 I was unfamiliar with Markdown syntax and file structure. The engineering
-decisions, code, testing, and reasoning throughout are my own — Claude
+decisions, code, testing, and reasoning throughout are my own — Copilot
 helped me structure and phrase how I recorded them, not what I decided or
 built.
